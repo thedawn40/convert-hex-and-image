@@ -25,7 +25,8 @@
 
 	</div>
     <div style="margin: 10px;">
-        <button class="btn btn-success" type="button" onclick="convert()" name="btnConvert">Convert</button>
+        <button class="btn btn-primary" type="button" onclick="convertImage()" name="btnConvert">Convert to Hex</button>
+        <button class="btn btn-success" type="button" onclick="convert()" name="btnConvert">Convert to Image</button>
       </div>
       <div>
         <textarea id="hexId" name="hex" rows="8" cols="67" style="width: 550px;">            
@@ -63,10 +64,8 @@ var file = $(this);
         dvPreview.append(img);
     }
     reader.readAsDataURL(file[0]);  
-    
-var blob = window.dataURLtoBlob(reader.result);
-var formData = new FormData();
-formData.append("file", blob, "test.odt");
+    var formData = new FormData(); 
+    formData.append('file', file[0]);
 $.ajax({
 
                 type : "POST",
@@ -79,6 +78,7 @@ $.ajax({
                 success : function(msg) {
                     var response = msg;
                     console.log(response);
+                    document.getElementById('hexId').value = response;
                 },
                 error : function(msg) {
                     alert("Couldn't upload file");
