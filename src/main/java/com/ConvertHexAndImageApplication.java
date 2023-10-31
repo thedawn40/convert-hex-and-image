@@ -11,13 +11,21 @@ import java.nio.file.Files;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan; 
+import org.springframework.boot.web.servlet.ServletComponentScan;
+
+import com.util.HexConvert;
+
+import ch.qos.logback.classic.Logger; 
 
 @SpringBootApplication
 public class ConvertHexAndImageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConvertHexAndImageApplication.class, args);
+		System.out.println(HexConvert.stringToHex("thedawn40"));
+		System.out.println(HexConvert.hexToString("7468656461776e3430"));
+		System.out.println(HexConvert.hexStringToByteArray("7468656461776e3430"));
+
 		// System.out.println("hello");
 
 		// Convert convert  = new Convert();
