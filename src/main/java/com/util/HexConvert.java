@@ -9,7 +9,7 @@ public class HexConvert {
 				Integer.toString( ( b[i] & 0xff ) + 0x100, 16).substring( 1 );
 		}
 		return result;
-	  }
+	}
 
     public static String stringToHex(String str){
 		StringBuffer sb = new StringBuffer();
